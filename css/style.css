@@ -1,0 +1,24 @@
+/*SCRIPT1*/
+.nombre {
+    color: cornflowerblue;
+    font-size: 40px;
+}
+
+/*SCRIPT2*/
+#usuario, #contrasena {
+    border-radius: 6px;
+    width: 180px;
+    height: 20px;
+}
+
+.texto-formulario {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#boton {
+    margin-top: 30px;
+    width: 100px;
+    height: 30px;
+    border-radius: 6px;
+}
