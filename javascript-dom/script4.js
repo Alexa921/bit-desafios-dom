@@ -10,11 +10,35 @@ const $botonEnviar = document.getElementById("boton");
 $botonEnviar.addEventListener("click", enviado);
 
 function enviado() {
-  console.log($usuarioEnviar.value.trim().match(/[aeiouAEIOU]/g));
-  console.log($contrasenaEnviar.value.trim().match(/[aeiouAEIOU]/g));
-  if ($contrasenaEnviar.value.length < 10 || $contrasenaEnviar.value.length > 10) {
-    alert("La contraseña debe tener 10 caracteres");
-  } else {
-    alert("La contraseña cumple con los requisitos");
+  // Eliminar espacios al inicio y final
+  const usuario = $usuarioEnviar.value.trim();
+  const contrasena = $contrasenaEnviar.value.trim();
+
+  // Contar vocales en usuario y contraseña
+  const contarVocales = (texto) => {
+    const coincidencias = texto.match(/[aeiouAEIOU]/g);
+    return coincidencias ? coincidencias.length : 0;
+  };
+
+  // Mostrar usuario y contraseña en consola
+  console.log(`Usuario ingresado: ${usuario}`);
+  console.log(`Contraseña ingresada: ${contrasena}`);
+
+  // Mostrar cantidad de vocales en cada campo
+  console.log(`Vocales en usuario: ${contarVocales(usuario)}`);
+  console.log(`Vocales en contraseña: ${contarVocales(contrasena)}`);
+
+  // Validar longitud de la contraseña
+  if (contrasena.length !== 10) {
+    alert("La contraseña debe tener exactamente 10 caracteres");
+    return;
   }
+
+  // Validar que la contraseña tenga al menos un carácter especial
+  if (!/[!$#+\-?.]/.test(contrasena)) {
+    alert("La contraseña debe contener al menos un carácter especial (!$#+-?.)");
+    return;
+  }
+
+  alert("La contraseña cumple con los requisitos");
 }
